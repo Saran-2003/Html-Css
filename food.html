@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food</title>
+    <style>
+      h1{
+        color: silver;
+        background-color: gray;
+        padding: 5px;
+      }  
+      .top{
+        padding-top: 8vw;
+        padding-left: 6vw;
+        background-image: url(https://s3.envato.com/files/d8893fa0-c71b-4c27-b374-c349ee114e06/inline_image_preview.jpg);
+        color: white;
+        font-size: 4vw;
+        
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+      .top>p{
+        font-size: small;
+        width: 40vw;
+        padding-left: 4vw;
+       
+      }
+      h2>span{
+        font-size: 4vw;
+        padding-left: 10px;
+      }
+      a{
+        color: orange;
+        font-size: medium;
+        width: 10px;
+        height: 10px;
+        transition: width 2s,height 4s,transform 2s;
+      }
+      a:hover{
+        width: 10px;
+        height: 10px;
+        transform: rotate(180deg);
+      }
+      .cont{
+        display: flex;
+        flex-direction: column;
+        width: 35vw;
+        background-color: grey;
+      }
+      .about{
+        font-size: medium;
+        display: flex;
+        flex-direction:row;
+      }
+      .about>img{
+        height: 25vw;
+      }
+      .cont>h2{
+        background-color: yellow;
+        font-size: 4vw; 
+      }
+      .cont>p{
+        padding: 5px;
+        display: flex;
+        justify-content: top;
+      }
+        img{ 
+        width: 30vw;
+        height: 20vw;
+      }
+      .learn{
+        background-color: black;
+        color: white;
+        padding-top: none;
+      }
+      .learn>h3{
+        color: orange;
+        font-family: cursive;
+        font-size: 4vw;
+        background-image: url(https://www.foodnavigator.com/var/wrbm_gb_food_pharma/storage/images/publications/food-beverage-nutrition/foodnavigator.com/news/science/black-is-back-the-secret-to-getting-people-to-buy-more-veg/10012647-1-eng-GB/Black-is-back-The-secret-to-getting-people-to-buy-more-veg.jpg);
+        display: flex;
+        justify-content: center;
+        padding-top: 7vw;
+      }
+      .learn>p{
+        padding-left: 34vw;
+        width:30vw;
+        color: grey;
+        background: transparent;
+        z-index:1;
+      }
+      .learn>h2{
+        padding-left: 34vw;
+        color: grey;
+        background: transparent;
+      }
+      h2>a{
+        font-size: x-large;
+      }
+      .blocks{
+        display: flex;
+        flex-direction: row;  
+        margin-right:4vw ; 
+        padding-bottom: 50px;
+        background: transparent;
+      }
+      @keyframes example{
+        from{
+          background-color: white;
+          color: black;
+        }
+        to{
+          background-color:black ;
+          color:white;
+        }
+      }
+      .blocks>.b1{
+        background-color: white;
+        color: black;
+        margin-left: 7vw;
+        width: 20vw;
+        padding-left: 15px;
+        padding-bottom: 25px;
+        animation-name: example;
+        animation-duration: 4s;
+        animation-iteration-count: infinite;
+      }
+      @keyframes example1{
+        from{
+          background-color: black;
+          color: white;
+        }
+        to{
+          background-color:orange ;
+          color:white;
+        }
+      }
+      .blocks>.b2{
+        background: transparent;
+        color:white;
+        margin-left: 6vw;
+        width: 20vw;
+        padding-left: 15px;
+        padding-bottom: 25px;
+        animation-name: example1;
+        animation-duration: 4s;
+        animation-iteration-count: infinite;
+      }
+      @keyframes example2{
+        from{
+          background-color: orange;
+          color: white;
+        }
+        to{
+          background-color:white ;
+          color:black;
+        }
+      }
+      .blocks>.b3{
+        background-color:orange ;
+        color:white;
+        margin-left: 7vw;
+        width: 20vw;
+        padding-left: 15px;
+        padding-bottom: 25px;
+        animation-name: example2;
+        animation-duration: 4s;
+        animation-iteration-count: infinite;
+      }
+      .b3>a{
+          color: white;
+      }
+      span{
+        display: flex;
+        justify-content: flex-start;
+        font-size: 2vw;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      }
+      .cont2{
+        display: flex;
+        flex-direction: row;
+       
+      }
+      .asian{
+        background-color: lightgrey ;
+        padding-left: 10vw;
+        color: black;
+        width: 50%;
+        padding: 10px;
+        padding-bottom: 25px;
+      }
+      .asian>h2{
+        font-family: fantasy;
+        font-size: 3vw;
+        color: black;
+        display: flex;
+        justify-content: end;      
+      }
+      .asian>p{
+        width: 20vw;
+        font-size: medium;
+        margin-left: 27vw;
+      }
+      .food{
+        background-color: yellowgreen ;
+        padding-left: 10vw;
+        color: black;
+        width: 50%;
+        padding: 10px;
+        padding-bottom: 25px;
+      }
+      .food>h2{
+        font-family: fantasy;
+        font-size: 3vw;
+        color: black;
+        display: flex;
+        justify-content: start;      
+      }
+      .food>p{
+        width: 20vw;
+        font-size: medium;
+        display: flex;
+        justify-content: end;
+      }
+      .img{
+        margin-left: 5vw;
+        padding-bottom: 50px;
+      }
+      .img2{
+        background-color: yellow;  
+        display: flex;
+        flex-direction: row;
+      }
+      .img2>p{
+        font-size: 2vw;
+        font-family: cursive;
+        margin-left:4vw;
+        margin-right:4vw;
+      }
+      .img2>img{
+        width: 45vw;
+        padding-bottom: 50px;
+        background-color: orange;
+      }
+      .farm{
+        display: flex;
+        flex-direction: row;
+        padding-bottom: 50px;
+      }
+      .farm>.cont3{
+        padding: 35px;
+        background-color: lightgray;
+      }
+      .farm>img{
+        width: 32vw;
+        height: 25vw;
+      }
+      .cont3>h2{
+        color: green;
+        font-family: Verdana, Geneva, Tahoma, cursive;
+        font-size: 2vw;
+      }
+      .cont3>p{
+        width: 25vw;
+      }
+      .bott{
+        background-image:url(https://images.creativemarket.com/0.1.0/ps/7358572/1820/1213/m1/fpnw/wm1/k127klsodfswwgb0i8quloaojdj8eizs6frih2d1e7uj7qaps0hhzzy3gdygsgqw-.jpg?1574657249&s=c6dfe32012079f3e58773b8c3b3d225c);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        height: 50vw;
+        display: flex;
+        flex-direction: row;
+        color: darkgray;
+      }
+      .bott>.cont4{
+          margin-top: 22vw;
+          width: 25vw;
+          margin-left: 4vw;
+      }
+      .bott>.cont5{
+          margin-top: 22vw;
+          margin-left: 6vw;
+          padding: 15px;
+      }
+      .cont5>a{
+        padding: 25px;
+      }
+    </style>
+</head>
+<body>
+    <h1>logo</h1>
+    <div class="top">
+        <h2>HOMEMADE<br><span>RESTAURANT</span></h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam ea nostrum harum laudantium vero vel ducimus exercitationem impedit ipsam sed velit tenetur quae fugiat, omnis ipsum dolor, eius voluptate enim!</p>
+        <a href="#">LEARN MORE</a>
+    </div>
+    <div class="about">
+        
+        <img src="food.jpg" alt="">
+        <div class="cont">
+            <h2>about</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At facilis cupiditate dicta eius? Error sed perferendis sunt minima praesentium! Fuga optio quam inventore sequi nemo veniam ipsam eligendi suscipit nobis.</p>
+        </div>
+        <img src="coffee.jpg" alt="">
+    </div>
+    <div class="learn">
+        <h3>Learn Cooking Online</h3>
+        <p>Odio at deleniti magnam vel consequuntur ex dolores voluptate maxime fuga sit quae, numquam officia laboriosam neque, ipsum temporibus minima esse a!</p>
+        <h2>IMAGE FROM <a>PIK</a></h2>
+        <div class="blocks">
+            <div class="b1">
+                <p><span>1<br> Base Meals</span><br>Explicabo quasi a ullam aut optio, odit advoluptatem unde impedit magnam maxime veniam.</p>
+                <a href="#">LEARN MORE</a>
+            </div>
+            <div class="b2">
+                <p><span><a>2</a><br>Knife Skills</span><br>Explicabo quasi a ullam aut optio, odit advoluptatem unde impedit magnam maxime veniam.</p>
+                <a href="#">LEARN MORE</a>
+            </div>
+            <div class="b3">
+                <p><span>3<br> Cooking Chicken</span><br>Explicabo quasi a ullam aut optio, odit advoluptatem unde impedit magnam maxime veniam.</p>
+                <a href="#">LEARN MORE</a>
+            </div>
+        </div>
+    </div>
+    <div class="cont2">
+      <div class="asian">
+        <h2>Asian</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores omnis sint laborum velit cumque illum veniam earum, iure accusantium impedit incidunt, officiis, fugit saepe at numquam dolorem in hic quam?</p>
+      </div>
+      <div class="food">
+        <h2>Food</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores omnis sint laborum velit cumque illum veniam earum, iure accusantium impedit incidunt, officiis, fugit saepe at numquam dolorem in hic quam?</p>
+      </div>
+    </div>
+      <div class="img">
+      <img src="https://img.freepik.com/free-photo/chicken-wings-barbecue-sweetly-sour-sauce-picnic-summer-menu-tasty-food-top-view-flat-lay_2829-6471.jpg?w=2000" alt="">
+      <img src="https://thumbs.dreamstime.com/b/veg-manchurian-popular-indo-chinese-food-made-cauliflower-florets-other-vegetable-served-white-plate-over-rustic-225789552.jpg" alt="">
+      <img src="https://previews.123rf.com/images/indianfoodimages/indianfoodimages1907/indianfoodimages190702558/127154684-assorted-indo-chinese-dishes-in-group-includes-schezwan-szechuan-hakka-noodles-veg-fried-rice-veg-ma.jpg" alt="">
+    </div>
+    <div class="img2">
+      <img src="https://cdn.holidaytravel.co/uploaded_files/destination_img/2016_0057ee12d485782india-top-25-non-veg-food-destinations.jpg" alt="">
+      <p><b>M F<br>E  I<br>A S<br>T H<br>AND</b></p>
+      <img src="https://res.cloudinary.com/swiggy/image/upload/f_auto,q_auto,fl_lossy/zej7w1ucsrik4oyal4ug" alt="">
+    </div>
+    <div class="farm">
+      <img src="https://biggreenpurse.com/wp-content/uploads/2020/11/grilled-veggie-plate-4-scaled.jpg" alt="">;
+      <img src="https://www.organicauthority.com/.image/ar_16:9%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cg_xy_center%2Cq_auto:good%2Cw_620%2Cx_1083%2Cy_935/MTkwMjAzNDc2MDMzMTUyMzQy/watermelon-poke.jpg" alt="">;
+      <div class="cont3">
+      <h2>Farm Products</h2>
+      <p>Inventore esse rerum architecto laboriosam, suscipit dolorum deleniti nisi debitis consectetur magni eveniet, cumque alias sequi unde quidem quae in eum! Ipsum.</p>
+      <a href="#">LEARN MORE</a>
+    </div>
+    </div>
+    <div class="bott">
+      <div class="cont4">
+        <h2>FRESH FOOD DELIVERY</h2>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero nesciunt consequatur minima culpa provident illo, voluptate, vitae corporis inventore possimus, quod ab quisquam quo commodi fugiat repellat autem voluptatem facere.</p>
+    </div>
+    <div class="cont5">
+      <a href="#">OUR MENU</a>
+      <a href="#">SPECIALS</a>
+      <a href="#">DRINKS</a>
+    </div>
+  </div>
+</body>
+</html>

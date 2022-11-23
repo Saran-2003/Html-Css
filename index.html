@@ -1,0 +1,158 @@
+
+
+    COUNTER
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Counter</title>
+    <style>
+        h1{
+            font-size: 3vw;
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+        button{           
+            color: white;           
+            width: 35vw;
+            padding: 10px;
+            font-size: 3vw; 
+            margin: 18px;           
+        }
+        .btn1{
+            background-color: yellow;
+            display: flex;
+            color: black;
+            justify-content: center;
+            border-radius: 10px;
+            margin-left: 35vw;
+        }
+        #btn2{
+            background-color: darkgreen;
+            display: flex;
+            justify-content: center;
+            border-radius: 10px;
+            margin-left: 35vw;
+        }
+        #save
+        {
+            font-size: 2vw;  
+            font-family: cursive;
+            margin-left: 38vw;
+            font-weight: bold;
+        }
+    </style>
+    
+   <script>
+        let count=0;    
+        let value;   
+     var btn=document.querySelectorAll("#btn1");
+        console.log(btn)
+        btn.forEach(function(btn1)
+        {
+            btn1.addEventListener('click',function  (e){
+                var x=e.currentTarget.name;
+                if(x.contains("increment")){
+                    count+=1;
+                    document.getElementById("counter").innerText=count;
+                }
+                else if(x.contains("decrement")){
+                    count-=1;
+                    
+                    document.getElementById("counter").innerText=count;
+                }
+                else if(x==reset){
+                    count=0;
+                    document.getElementById("counter").innerText=count;
+                }
+            })
+        })
+           // count+=1;
+           // document.getElementById("counter").innerText=count;
+        
+        
+       // fun();
+       /*function  increase(){
+                count+=1;
+                document.getElementById("counter").innerText=count;
+       }
+       function  reset(){
+                count=0;
+                document.getElementById("counter").innerText=count;
+       }
+       function  decrease(){
+                count-=1;
+                document.getElementById("counter").innerText=count;
+       }*/
+       function Save()
+        {
+            value=document.getElementById("save").innerText+=count+" -";
+            document.getElementById("counter").innerText=0;
+        }
+    </script>
+</head>
+<body>
+    <h1><b>People Entered:</b></h1>
+    <h1 id="counter"> 0 </h1> 
+    <button class="btn1" name="increment" onclick="increase()" ><b>INCREMENT</b></button>
+    <button class="btn1" name="reset"  onclick="reset()"><b>RESET</b></button>
+    <button class="btn1" name="decrement"  onclick="decrease()"><b>DECREMENT</b></button>
+    <button id="btn2" onclick="Save()"><b>SAVE</b></button>
+    <p id="save">Prevoius Entries:</p>
+</body>
+</html> 
+-->
+<!--
+
+purchase
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <style>
+        img{
+            margin-left: 7vw;
+            width: 15vw;
+        }
+        p{
+            margin-left: 8vw;
+            font-size: 1.5vw;
+        }
+        #btn1{
+            margin-left: 8vw;
+            padding: 18px;
+            font-weight: 10px;
+            border-radius: 5px;
+        }
+        #demo{
+            color: red;
+        }
+    </style>
+    <script>
+        let err;
+        function purchase()
+        {
+            err=document.getElementById("demo").textContent=("Something Went Wrong.Please try again")
+        }
+    </script>
+<body>
+    <img src="food.jpg" alt="">
+    <p><b>Pizza</b></p>
+    <button id="btn1" onclick="purchase()">buy -$149</button>
+    <p id="demo"></p>
+    
+</body>
+</html> -->
+
+
+
+
+

@@ -1,0 +1,178 @@
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Flipper</title>
+    <style>
+        body{
+            margin: 20vw;
+        }
+        p{
+            background-color: black;
+            color: white;
+            padding: 15px;
+        }
+        .navbar{
+            margin: none;
+            color: cornflowerblue;
+        }
+    </style>
+    <script>
+        const colorss=["Yellow","green","Blue","red"];
+        const clkbtn=document.getElementById(" btn");
+        const color=document.querySelector(".colors")
+        clkbtn.addEventListener("click",function(){
+            const randomno=getrandom();
+            document.body.style.backgroundColor=colorss[randomno];
+            colors.textContent=colorss[randomno];
+        });
+        function getrandom(){
+            return Math.floor(Math.random() * colorss.length);
+        }
+    </script>
+</head>
+<body>
+    <nav>
+        <div class="navbar">
+            <h3>Color Flipper</h3>
+        </div>
+    </nav>
+    <div  class="container">
+        <p>BackGround Color:<span class="colors"> </span></p>
+    </div>
+    
+    <button type="button" id="btn">Click Me</button>
+</body>
+</html>
+
+-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews</title>
+    <style>
+        h1{
+            margin-left: 25vw;
+            margin-top: 10vw;
+            text-decoration:underline;
+            text-decoration-color: aqua;
+        }
+        .container{
+            padding: 3vw;
+            background-color: aliceblue;
+            width: 20vw;
+            height:21vw;
+            margin-left: 25vw;
+            box-shadow: inset;
+            border-radius: 5px;
+            
+        }
+       img{
+            height:7vw ;
+            width:8vw;
+            border-radius: 40px;
+            display: flex;
+            margin-left: 6vw;
+        }  
+        #name{
+            display: flex;
+            justify-content: center;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        #job{
+            color:skyblue;
+            display: flex;
+            justify-content: center;
+            font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        #review{
+            display: flex;
+            justify-content: center;
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        i{
+            float: center;
+            padding-left: 2vw;
+        }  
+        button{
+            border: none;
+           background-color: aliceblue;
+        }  
+    </style>
+    <script src="https://kit.fontawesome.com/b801f4565a.js" crossorigin="anonymous">
+        const reviews=[
+                            {
+                                name:"Gold",
+                                job:"Fullstaack Devoloper",
+                                img:"https://thumbs.dreamstime.com/b/headshot-portrait-happy-young-man-looking-camera-standing-indoors-home-modern-office-profile-picture-smiling-millennial-205222437.jpg",
+                                review:"The culture is pathetic and can't be explained in words.The pay is way underpaid when compared to the work. Anyone can call at any time and ask you to cancel your leave or login at 11 PM at night because they felt like making you work. The Directors are least bothered about any escalations being made. It's a mess to sum up and better look elsewhere. I am making a shift after spending only 9 months here already. A couple of people who joined along with me have made a move already because of this pathetic culture of the organization."
+                            },
+                            {
+                                name:"Vikash",
+                                job:"App Devoloper",
+                                img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzHQv_th9wq3ivQ1CVk7UZRxhbPq64oQrg5Q&usqp=CAU",
+                                review:"The culture is pathetic and can't be explained in words.The pay is way underpaid when compared to the work. Anyone can call at any time and ask you to cancel your leave or login at 11 PM at night because they felt like making you work. The Directors are least bothered about any escalations being made. It's a mess to sum up and better look elsewhere. I am making a shift after spending only 9 months here already. A couple of people who joined along with me have made a move already because of this pathetic culture of the organization."
+                            },
+                            {
+                                name:"Kabilan",
+                                job:"Network Analyser",
+                                img:"https://image.shutterstock.com/mosaic_250/2780032/1714666150/stock-photo-head-shot-portrait-close-up-smiling-confident-businessman-wearing-glasses-looking-at-camera-1714666150.jpg",
+                                review:"The culture is pathetic and can't be explained in words.The pay is way underpaid when compared to the work. Anyone can call at any time and ask you to cancel your leave or login at 11 PM at night because they felt like making you work. The Directors are least bothered about any escalations being made. It's a mess to sum up and better look elsewhere. I am making a shift after spending only 9 months here already. A couple of people who joined along with me have made a move already because of this pathetic culture of the organization."
+                            }    
+    ]
+    var name=document.getElementById("name");
+    var job=document.getElementById("job");
+    var review=document.getElementById("review");
+    var img=document.getElementById("Img");
+    const Prevbtn=document.querySelector(".prevbtn");
+    const nxtbtn=document.querySelector(".nextbtn");
+    let c=0;
+    window.addEventListener("DOMContentLoaded",function(){
+        show(c);
+    });
+    function show(e){
+        const ite=reviews[e];
+        img.src=ite.img;
+        name.textContent=ite.name;
+        job.textContent=ite.job;
+        review.textContent=ite.review;
+    }
+    nxtbtn.addEventListener("DOMContentLoaded",function(){
+        c++;
+        if(c>reviews.length-1)
+        {
+             c=0;
+        }   
+       show(c);});
+     prevbtn.addEventListener("DOMContentLoaded",function(){
+        c--;
+        if(c<0)
+        {
+            c=reviews.length-1;
+        }     
+        show(c);});
+   </script>
+</head>
+<body>
+    <h1>Our Reviews</h1>
+    <div class="container">
+        <div class="img">
+            <img  id="Img"src="food.jpg" alt="">
+        </div>
+        <p id="name">Man</p>
+        <p id="job">Web Developer</p>
+        <p id="review">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat dignissimos ducimus esse animi neque unde accusantium amet, exercitationem necessitatibus fugiat omnis excepturi voluptatum ipsa ullam, aperiam nostrum molestiae laborum dicta?</p>
+        <button class="prevbtn"><i class="fas fa-chevron-left"></i></button>
+       <button class="nextbtn"><i class="fas fa-chevron-right"></i></button> 
+    </div>
+</body>
+</html>

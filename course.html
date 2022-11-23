@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <title>Course</title>
+    <style>
+        .top{
+            margin-left: 5vw;
+            margin-top: 2vw;
+            font-size: 2vw;
+            font-family: cursive;
+            text-shadow: 3px 1px 2px black;
+        }
+        .top>button{
+            background-color: black;
+            padding: 9px;
+            border-radius: 20px;
+            color: white;
+            margin-left: 35vw;
+        }
+        .cont{
+            width: 21vw;
+            margin-left: 7vw;
+            display: flex;
+            flex-direction: row;
+            color: gray;
+        }
+        .cont1>h1{
+            color: black;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+        .cont1>button{
+            background-image: linear-gradient(to bottom,rgb(226, 11, 219),rgb(191, 15, 106));
+            padding: 12px;
+            color: white;
+            border-radius: 20px;
+        }
+        .cont2>p{
+        background-color: white;
+        color: black;
+        width: 2vw;
+        border: 1px solid whitesmoke;
+        border-radius: 5px;
+        }
+        .block{
+            display: grid;
+            grid-template-columns:repeat(3,1fr);
+            background-color: rgb(250, 250, 246);
+        }
+        .block>.b1,.b2,.b3,.b4,.b5,.b6{
+            width: 20vw;
+            padding: 10px;
+            background-color: white;
+            border-radius: 20px;
+            margin-left: 5vw;
+            margin-top: 3vw;
+        }
+        .b1>h2{
+            color:rgb(206, 24, 154);
+        }
+        .b1{
+            background-image: linear-gradient(to bottom,red,rgb(206, 24, 154));
+        }
+        @keyframes example{
+            from{
+                color:rgb(206, 24, 154) ;
+            }
+            to{
+                color: whitesmoke;
+            }
+        }
+        .b1>h2{
+            animation-name: example;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+        }
+        .bot{
+            margin-top: 4vw;
+            background-color: black;
+            display: flex;
+            flex-direction: row;
+            padding: 15px;
+        }
+        .bot>h1{
+            margin-left: 8vw;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: larger;
+            color: white;
+        }
+        .bot>button{
+            margin-left: 59vw;
+            padding: 10px;
+            border-radius:4vw;
+            margin-right: 4vw;
+            background-image: linear-gradient(to right,yellow,green);
+        }
+        button{
+            color: crimson;
+            border:none;
+            background: none;
+            font-size: 1vw;
+        }
+    </style>
+</head>
+<body>
+    <div class="top">
+        <h><b>Skilled</b></h>
+        <p><i class="fa-solid fa-house-user"></i></p>
+       <!-- <button type="button" onclick="document.getElementById('cont').innerHTML = 'Hello JavaScript!'">Get Started</button>-->
+    </div>
+    <div class="cont">
+        <div class="cont1">
+        <h1><b>Maximize skill, minimize budget</b></h1>
+        <p id="demo">Saepe, quibusdam! Rerum, aspernatur beatae, molestias possimus earum minus voluptas neque molestiae perferendis voluptate sit corporis atque eligendi dolores ipsa libero expedita!</p>
+        <button type="button" onclick='document.getElementById("demo").innerHTML="Enter your Name"'>Get Started</button>
+    </div>
+    <div class="cont2">
+        <p>Course hour<br>1,452</p>
+        <p>Members<br>29k</p>
+    </div>
+     </div>
+     <div class="block">
+        <div class="b1">
+            <h1>Welcome to Skilled Courses...</h1>
+            <h2>Check out for most Popular Ideas</h2>
+        </div>
+        <div class="b2">
+            <h1><b>Animation</b></h1>
+            <p>Laboriosam ducimus omnis quod dolores libero nostrum dignissimos corrupti quasi porro, harum sint id repellat quibusdam modi veritatis quo non asperiores neque?</p>
+            <button>Get started</button>
+        </div>
+        <div class="b3">
+            <h1><b>Design</b></h1>
+            <p>Laboriosam ducimus omnis quod dolores libero nostrum dignissimos corrupti quasi porro, harum sint id repellat quibusdam modi veritatis quo non asperiores neque?</p>
+            <button>Get started</button>
+        </div>
+        <div class="b4">
+            <h1><b>Photography</b></h1>
+            <p>Laboriosam ducimus omnis quod dolores libero nostrum dignissimos corrupti quasi porro, harum sint id repellat quibusdam modi veritatis quo non asperiores neque?</p>
+            <button>Get started</button>
+        </div>
+        <div class="b5">
+            <h1><b>Crypto</b></h1>
+            <p>Laboriosam ducimus omnis quod dolores libero nostrum dignissimos corrupti quasi porro, harum sint id repellat quibusdam modi veritatis quo non asperiores neque?</p>
+            <button>Get started</button>
+        </div>
+        <div class="b6">
+            <h1><b>Business</b></h1>
+            <p>Laboriosam ducimus omnis quod dolores libero nostrum dignissimos corrupti quasi porro, harum sint id repellat quibusdam modi veritatis quo non asperiores neque?</p>
+            <button>Get started</button>
+        </div>
+    </div>
+        <div class="bot">
+            <h1>Skilled</h1>
+            <button>Get Started</button>
+        </div>
+     
+</body>
+</html>

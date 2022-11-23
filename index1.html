@@ -1,0 +1,259 @@
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>        
+</head>
+<style>
+    input{
+        border: none;
+        border-bottom: 1px solid black;
+    }
+    button
+    {
+        margin-left: 8vw;
+        padding: 18px;
+        font-weight: 10px;
+        border-radius: 5px;
+    }
+</style>
+<script>
+    let val1=parseFloat(prompt("Enter the first Number:"));
+    console.log(val1)
+    let val2=parseFloat(prompt("Enter the first Number:"));;
+    function add()
+    {
+        document.getElementById("res").innerHTML+=val1+val2+"<br>";
+    }
+    function sub()
+    {
+        document.getElementById("res").innerHTML+=val1-val2+"<br>";
+    }
+    function mul()
+    {
+        document.getElementById("res").innerHTML+=val1*val2+"<br>";
+    }
+    function div()
+    {
+        document.getElementById("res").innerHTML+=val1/val2+"<br>";
+    }
+</script>
+<body>
+    <button id="btn1"onclick="add()">ADD</button>
+    <button onclick="sub()">SUB</button>
+    <button onclick="mul()" >MUL</button>
+    <button onclick="div()">DIV</button>
+    <p id="res">Result:</p>
+</body>
+</html>-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://kit.fontawesome.com/b801f4565a.js">
+    <title>ToDo List</title>
+</head>
+<style>
+    body{
+        background-image: linear-gradient(to bottom,red,blue);
+        color: White;
+    }
+    #top{
+        background-color:rgb(41, 41, 42);
+        display: flex;
+        flex-direction: row;
+        color: white;
+    }  
+    #navbar{
+        margin-left: 85vw;       
+    }
+    i{
+        margin-top: 1.5vw;
+    }
+    #navbar>ul{
+        list-style-type: none;
+        padding: 3px;
+        margin-right: 25px;
+    }
+    #drop{
+        display: none;
+    }
+    #navbar:hover #drop{
+        display: block;
+    }
+    #drop >li,a{
+        padding:2px;   
+        text-decoration: none;
+        color: white;
+    }
+    h1{
+        display: flex;
+        justify-content: center;
+    }
+    #title{
+        padding: 10px;
+    }
+    #descr{
+        padding: 10px;
+    }
+    input
+    {
+        height: 2vw;
+        width: 40vw;
+    }
+    #descr>input{
+        height: 4vw;
+        width: 40vw;
+        text-align:justify;
+    }
+    button{
+        background-color: rgb(43, 43, 240);
+        padding-right: 7px;
+        margin-left: 35px;
+        color: white;
+        border-radius: 5px;
+    }
+    h2{
+        margin-left: 10px;
+    }
+    #bott{
+        padding: 10px;
+    }
+    li{
+        padding-right:20vw   
+    }
+    #sno{
+        padding-left:v7w 
+    }
+    th{
+       padding-right: 10vw;
+    }
+    .drop a{
+        margin: 0 0.5rem;
+    }
+</style>
+<script>   
+    function Add(){
+            tit=document.getElementById('title').value;
+            console.log(tit);
+            var desc=document.getElementById('descr').value;
+            console.log(desc);
+            
+           if(localStorage.getItem('itemsJson')==null)
+           {
+            todoArray=[];
+            todoArray.push([tit,desc]);
+            localStorage.setItem('itemsJson',JSON.stringify(todoArray));
+           }    
+           else{
+            todostr=localStorage.getItem('itemsJson');
+            todoArray=JSON.parse(todostr);
+            todoArray.push([tit,desc]);
+            localStorage.setItem('itemsJson',JSON.stringify(todoArray));
+           }
+           update();
+    }
+    update();
+    function update(){
+                if (localStorage.getItem('itemsJson')==null){
+                    todoArray = []; 
+                    localStorage.setItem('itemsJson', JSON.stringify(todoArray))
+                } 
+                else{
+                    todostr = localStorage.getItem('itemsJson')
+                    todoArray = JSON.parse(todostr); 
+                }
+                // Populate the table
+                let tableBody = document.getElementById("todotable");
+                let str = "";
+                todoArray.forEach((element, index) => {
+                    str += `
+                    <tr>
+                    <th scope="row">${index + 1}</th>
+                    <td>${element[0]}</td>
+                    <td>${element[1]}</td> 
+                    <td><button class="del" onclick="deleted(${index})">Delete</button></td> 
+                    </tr>`; 
+                });
+                tableBody.innerHTML = str;
+            }
+            const ad= document.getElementById("add");
+            ad.addEventListener("click", Add());
+            update();
+
+            function deleted(itemIndex){
+                console.log("Delete", itemIndex);
+                todostr = localStorage.getItem('itemsJson')
+                todoArray = JSON.parse(todostr);
+                // Delete itemIndex element from the array
+                todoArray.splice(itemIndex, 1);
+                localStorage.setItem('itemsJson', JSON.stringify(todoArray));
+                update();
+
+            }
+            function clearALL(){
+                if (confirm("Do you areally want to clear?")){
+                console.log('Clearing the storage')
+                localStorage.clear();
+                update()
+                }
+            }
+
+</script>
+<body>
+    <div id="top">
+        <h3>TODO List</h3>
+        <div id="navbar">
+            <i class="fa fa-bars"></i>
+        <ul id="drop show-links">
+            <li><a href="food.jpg" target="self">Home</a></li>
+            <li><a href="food.html">Contact</a></li>
+        </ul>
+    </div>
+    </div>
+    <div id="cont">
+        <h1><b>TO-DO List</b></h1>
+        <div id="title">
+            <h2>Title</h2>
+            <input type="text" name="title" class="inputs">
+        </div>
+        <div id="descr">
+            <h2>Description</h2>
+            <input type="text" name="description" class="inputs">
+        </div>
+    </div>
+    <button id="add">Add</button>
+    <button id="clear" onclick="clearALL()">Clear All</button>
+    <div id="bott">  
+    <div id="table">
+        <h2>Your Items</h2><hr>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th>SrNo</th>
+                    <th>Title</th>
+                    <th>Description</th> 
+                    <th>Action</th> 
+                  </tr>
+                </thead>
+                <tbody id="todotable">
+                  <tr>
+                    <th scope="row"></th>
+                    <td></td>
+                    <td></td> 
+                    <td><button class="del"></button></td> 
+                  </tr>
+                  
+                </tbody>
+              </table>
+    <hr>
+</div>
+</div>
+</body>
+</html>
