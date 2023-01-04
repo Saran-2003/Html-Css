@@ -1,68 +1,17 @@
-<!--
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator</title>        
-</head>
-<style>
-    input{
-        border: none;
-        border-bottom: 1px solid black;
-    }
-    button
-    {
-        margin-left: 8vw;
-        padding: 18px;
-        font-weight: 10px;
-        border-radius: 5px;
-    }
-</style>
-<script>
-    let val1=parseFloat(prompt("Enter the first Number:"));
-    console.log(val1)
-    let val2=parseFloat(prompt("Enter the first Number:"));;
-    function add()
-    {
-        document.getElementById("res").innerHTML+=val1+val2+"<br>";
-    }
-    function sub()
-    {
-        document.getElementById("res").innerHTML+=val1-val2+"<br>";
-    }
-    function mul()
-    {
-        document.getElementById("res").innerHTML+=val1*val2+"<br>";
-    }
-    function div()
-    {
-        document.getElementById("res").innerHTML+=val1/val2+"<br>";
-    }
-</script>
-<body>
-    <button id="btn1"onclick="add()">ADD</button>
-    <button onclick="sub()">SUB</button>
-    <button onclick="mul()" >MUL</button>
-    <button onclick="div()">DIV</button>
-    <p id="res">Result:</p>
-</body>
-</html>-->
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://kit.fontawesome.com/b801f4565a.js">
+   
     <title>ToDo List</title>
 </head>
 <style>
-    body{
-        background-image: linear-gradient(to bottom,red,blue);
-        color: White;
+    #body{
+        background-image: linear-gradient(to bottom,green,blue);
+        color: aliceblue;
+        padding: none;
     }
     #top{
         background-color:rgb(41, 41, 42);
@@ -70,28 +19,12 @@
         flex-direction: row;
         color: white;
     }  
-    #navbar{
-        margin-left: 85vw;       
+    
+    h3{
+        margin-left: 19px;
+        width: 1px;
     }
-    i{
-        margin-top: 1.5vw;
-    }
-    #navbar>ul{
-        list-style-type: none;
-        padding: 3px;
-        margin-right: 25px;
-    }
-    #drop{
-        display: none;
-    }
-    #navbar:hover #drop{
-        display: block;
-    }
-    #drop >li,a{
-        padding:2px;   
-        text-decoration: none;
-        color: white;
-    }
+    
     h1{
         display: flex;
         justify-content: center;
@@ -129,103 +62,29 @@
         padding-right:20vw   
     }
     #sno{
-        padding-left:v7w 
+        padding-left:7vw 
     }
     th{
        padding-right: 10vw;
     }
-    .drop a{
-        margin: 0 0.5rem;
-    }
+    
 </style>
-<script>   
-    function Add(){
-            tit=document.getElementById('title').value;
-            console.log(tit);
-            var desc=document.getElementById('descr').value;
-            console.log(desc);
-            
-           if(localStorage.getItem('itemsJson')==null)
-           {
-            todoArray=[];
-            todoArray.push([tit,desc]);
-            localStorage.setItem('itemsJson',JSON.stringify(todoArray));
-           }    
-           else{
-            todostr=localStorage.getItem('itemsJson');
-            todoArray=JSON.parse(todostr);
-            todoArray.push([tit,desc]);
-            localStorage.setItem('itemsJson',JSON.stringify(todoArray));
-           }
-           update();
-    }
-    update();
-    function update(){
-                if (localStorage.getItem('itemsJson')==null){
-                    todoArray = []; 
-                    localStorage.setItem('itemsJson', JSON.stringify(todoArray))
-                } 
-                else{
-                    todostr = localStorage.getItem('itemsJson')
-                    todoArray = JSON.parse(todostr); 
-                }
-                // Populate the table
-                let tableBody = document.getElementById("todotable");
-                let str = "";
-                todoArray.forEach((element, index) => {
-                    str += `
-                    <tr>
-                    <th scope="row">${index + 1}</th>
-                    <td>${element[0]}</td>
-                    <td>${element[1]}</td> 
-                    <td><button class="del" onclick="deleted(${index})">Delete</button></td> 
-                    </tr>`; 
-                });
-                tableBody.innerHTML = str;
-            }
-            const ad= document.getElementById("add");
-            ad.addEventListener("click", Add());
-            update();
 
-            function deleted(itemIndex){
-                console.log("Delete", itemIndex);
-                todostr = localStorage.getItem('itemsJson')
-                todoArray = JSON.parse(todostr);
-                // Delete itemIndex element from the array
-                todoArray.splice(itemIndex, 1);
-                localStorage.setItem('itemsJson', JSON.stringify(todoArray));
-                update();
-
-            }
-            function clearALL(){
-                if (confirm("Do you areally want to clear?")){
-                console.log('Clearing the storage')
-                localStorage.clear();
-                update()
-                }
-            }
-
-</script>
 <body>
+    <div id="body">
     <div id="top">
         <h3>TODO List</h3>
-        <div id="navbar">
-            <i class="fa fa-bars"></i>
-        <ul id="drop show-links">
-            <li><a href="food.jpg" target="self">Home</a></li>
-            <li><a href="food.html">Contact</a></li>
-        </ul>
-    </div>
+        
     </div>
     <div id="cont">
         <h1><b>TO-DO List</b></h1>
         <div id="title">
             <h2>Title</h2>
-            <input type="text" name="title" class="inputs">
+            <input type="text" id="titl" name="title" class="inputs">
         </div>
         <div id="descr">
             <h2>Description</h2>
-            <input type="text" name="description" class="inputs">
+            <input type="text"id="descri" name="description" class="inputs">
         </div>
     </div>
     <button id="add">Add</button>
@@ -233,7 +92,7 @@
     <div id="bott">  
     <div id="table">
         <h2>Your Items</h2><hr>
-            <table class="table">
+            <table id="table">
                 <thead>
                   <tr>
                     <th>SrNo</th>
@@ -247,7 +106,7 @@
                     <th scope="row"></th>
                     <td></td>
                     <td></td> 
-                    <td><button class="del"></button></td> 
+                    
                   </tr>
                   
                 </tbody>
@@ -255,5 +114,82 @@
     <hr>
 </div>
 </div>
+</div>
 </body>
 </html>
+<script>  
+    
+    
+    function push()
+    {
+        let tit=document.getElementById("titl").value
+    let descr=document.getElementById("descri").value
+    
+    let clr=document.getElementById("clear")
+     if(localStorage.getItem("todo")===null)
+     {
+         arr=[]
+         arr.push([tit,descr])
+         localStorage.setItem("todo",JSON.stringify(arr))
+     }
+     else{
+         array=localStorage.getItem("todo")
+         arr=JSON.parse(array)
+         arr.push([tit,descr])
+         localStorage.setItem("todo",JSON.stringify(arr))
+     }
+     update()
+    }
+    function update()
+    {
+     if(localStorage.getItem('todo')===null)
+     {
+         arr=[]
+         localStorage.setItem('todo',JSON.stringify(arr))
+     }
+     else{
+         array=localStorage.getItem('todo')
+         arr=JSON.parse(array)
+     }
+   
+    let table=document.getElementById("todotable")
+    let val=" "
+    arr.forEach((element, index) => {
+    {
+         
+         val+=`
+         <tr>
+                     <th scope="row">${index+1}</th>
+                     <td>${element[0]}</td>
+                     <td>${element[1]}</td> 
+                     <td><button onclick="deleted(${index})" id="del">Delete</button></td>
+                   </tr>`
+    }
+    table.innerHTML=val;
+})
+    }
+let add=document.getElementById("add")
+    add.addEventListener("click",push)
+    console.log("bu")
+    update()
+ 
+    function deleted(index)
+    {
+         array=localStorage.getItem('todo')
+         arr=JSON.parse(array)
+         arr.splice(index,1)
+         localStorage.setItem('todo',JSON.stringify(arr))
+         update()
+    }
+ 
+    function clearALL()
+    {
+     if(confirm("Do You Want to Clear all?"))
+     {
+        console.log('Clearing the storage')
+         localStorage.clear()
+         update()
+     }
+    }
+ 
+</script>

@@ -6,13 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        *{
+            box-sizing: border-box;
+        }
+        .bg{
+            padding: none;
+        }
        .top{
         display: flex;
         flex-direction: row;
         background-color: skyblue;
-        height: 3vw;
+        height: 4vw;
        }
-       .top>h1{
+       .top >h2{
         margin-top: 5px;
         margin-left: 3vw;
         background: none;
@@ -33,19 +39,15 @@
        .top>textarea{
         margin-top: 1vw;
         margin-left:3vw ;
-        height: 1vw;
+        height: 1.5vw;
         width: 10vw;
        }
-       .bg{
-        background-repeat: no-repeat;
-        background-image: url("travel.jpg");  
-        background-position-x: 50%;
-        background-position-y: 50%;
-        background-size: 100% 100%;
-    }
+       
        .cnt{
-        margin-left: 30vw;
-        margin-top: 6vw;
+        background-image: url(IMG-20221009-WA0000.jpg.jpg);
+        background-size: 100% 100%;
+        text-align: center;
+        padding: none;
        }
        span{
         font-size: 3vw;
@@ -54,9 +56,9 @@
 
        }
        span1{
-        color: darkred;
-        font-size: 2vw;
-        margin-left: 5vw;
+        color: rgb(22, 21, 21);
+        font-size: 2.5vw;
+        
        }
     
       .cnt>button{
@@ -174,12 +176,23 @@
         background-image: url("https://i.natgeofe.com/k/e924c4a8-cf47-4621-9ef8-20884ad2444f/Pyramids-at-Giza_4x3.png");
         background-size: 100% 100%;
     }
+    @media screen and (max-width:972px ){
+        ul{
+            margin-left:1px ;
+        }
+        li{
+            padding: 2px;
+        }
+        .cnt,.top>textarea{
+            height: 4vw;
+        }
+    }
     </style>
 </head>
 <body>
     <div class="bg">
     <div class="top">
-    <h1><b>Bridge</b></h1>
+    <h2><b>Bridge</b></h2>
     <textarea name="searchbar" placeholder="Search.." ></textarea> 
     <ul>    
         <li><a href="#">Discover</a></li>

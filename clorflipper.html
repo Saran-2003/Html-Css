@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Flipper</title>
+    <style>
+        body{
+            margin: 20vw;
+        }
+        p{
+            background-color: black;
+            color: white;
+            padding: 15px;
+        }
+        .navbar{
+            margin: none;
+            color: cornflowerblue;
+        }
+    </style>
+    
+</head>
+<body>
+    <nav>
+        <div class="navbar">
+            <h3>Color Flipper</h3>
+        </div>
+    </nav>
+    <div  class="container">
+        <p>BackGround Color:<span class="colors"> </span></p>
+    </div>
+    
+    <button type="button" id="btn">Click Me</button>
+</body>
+</html>
+<script>
+    const colorss=["Yellow","green","Blue","red"]
+    const clkbtn=document.getElementById("btn")
+    const color=document.querySelector(".colors")
+    clkbtn.addEventListener("click",function(){
+        const randomno=getrandom()
+        document.body.style.backgroundColor=colorss[randomno]
+        color.textContent=colorss[randomno]
+    })
+    function getrandom(){
+        return Math.floor(Math.random() * colorss.length);
+    }
+</script>
+
+
+
+

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlackJack</title>
+    <style>
+        body{
+            background-color: green;
+        }
+        h1{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: goldenrod;
+            text-align: center;
+            font-size: 5vw;
+        }
+        #status{
+            text-align: center;
+            font-family: cursive;
+            font-size: 4vw;
+        }
+        #card{
+            font-size: 3vw;
+            
+            margin-left: 33vw;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        #summ{
+            font-size: 3vw;
+            
+            margin-left: 33vw;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        button{
+            background-color: goldenrod;
+            color: green;
+            font-size: 3vw;
+            font-weight: 200;
+            text-align: center;
+            margin-left: 40vw;
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 15px;
+            width: 19vw;
+            height: 6vw;
+            border-radius: 5px;
+        }
+        #player{
+            font-size: 3vw;          
+            margin-left: 35vw;
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+        }
+    </style>
+    
+</head>
+<body>
+    <h1>BlackJack</h1>
+    <p id="status"><b>Want to play a round?</b></p>
+    <p id="card"><b>Cards:</b></p>
+    <p id="summ"><b>Sum:</b></p>
+    <button id="start" onclick="getstart()"><b>Start Game</b></button>
+    <button id="new" onclick="newcard()"><b>New Card</b></button>
+    <p id="player"></p>
+</body>
+</html>
+<script>
+    let obj={
+        name:"Jan",
+        amt:100,
+    }
+    let card=[]
+    let isAlive=false
+    let hasbj=false
+    let sum=document.getElementById("summ")
+    let cards=document.getElementById("card")
+    let status=document.getElementById("status")
+    let price=document.getElementById("player")
+    let sums=0
+    let msg=" "
+    
+    function getrandom()
+    {
+        let rn=Math.ceil(Math.random()*13)
+        if(rn > 10)
+        {
+            return 10
+        }
+        else if(rn === 1)
+        {
+            return 11
+        }
+        else
+        {
+            return rn
+        }
+    }
+
+    function getstart()
+    {
+        isAlive=true;
+        let fc=getrandom()
+        let sc=getrandom()
+        sums=fc+sc
+        card=[fc,sc]
+        obj.amt=parseInt(obj.amt)
+        price.textContent=obj.name+":$"+obj.amt
+        display()
+    }
+
+    function display()
+    {
+        sum.textContent="Sum:"+sums
+        cards.textContent="Cards:"
+        
+        for(let i=0;i<card.length;i+=1)
+        {
+            cards.textContent+=card[i]+" "
+        }
+        if(sums < 21)
+        {
+            msg="Do You ant to draw a Next Card?";
+            isAlive=true
+            obj.amt+=0
+        }
+        else if(sums ===21)
+        {
+            msg="You've got BlackJack!"
+            hasbj=true
+            obj.amt+=Math.floor(Math.random()*100)
+        }
+        else{
+            msg="you are Out of the Game"
+            isAlive=false
+            obj.amt-=Math.floor(Math.random()*100)
+            if(obj.amt<0)
+            {
+                obj.amt+=0
+            }
+        }
+            status.textContent=msg
+            price.textContent=obj.name+":$"+obj.amt
+    }
+
+    function newcard()
+    {
+        let n=getrandom()
+        if(isAlive===true && hasbj===false)
+        {
+            sums+=n
+            card.push(n)
+        }
+        display()
+    }
+</script>

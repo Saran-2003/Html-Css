@@ -48,7 +48,7 @@
     </style>
     
    <script>
-        let count=0;    
+      /*  let count=0;    
         let value;   
      var btn=document.querySelectorAll("#btn1");
         console.log(btn)
@@ -71,12 +71,12 @@
                 }
             })
         })
-           // count+=1;
-           // document.getElementById("counter").innerText=count;
-        
+        count+=1;
+           document.getElementById("counter").innerText=count;
+        */
         
        // fun();
-       /*function  increase(){
+       function  increase(){
                 count+=1;
                 document.getElementById("counter").innerText=count;
        }
@@ -87,11 +87,12 @@
        function  decrease(){
                 count-=1;
                 document.getElementById("counter").innerText=count;
-       }*/
+       }
        function Save()
         {
             value=document.getElementById("save").innerText+=count+" -";
             document.getElementById("counter").innerText=0;
+            count=0;
         }
     </script>
 </head>
