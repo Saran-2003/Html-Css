@@ -14,13 +14,16 @@
             font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', cursive ;
             color: darkmagenta;
             text-align: center;
+            font-weight: 500;
+            
         }
         .input1{
            padding-bottom: 8vw;
             display: flex;
             flex-direction: row;
-            padding-left: 15vw;
-            padding-top: 8vw;
+            padding-left: 25vw;
+            padding-top: 6vw;
+            
         }
         .celsius{
             background-color: aliceblue;
@@ -45,32 +48,38 @@
             font-weight: bolder;
             border-radius: 5px;
         }
+        @media screen and (max-width:1000px) 
+        {  
+        .input1{
+            display:flex;
+            flex-wrap: wrap;
+           }
+        #btn{
+            margin-left: 37vw;
+        }
+        }
     </style>
     <script>
         
         function add(){
-          
-        let celbtn=document.getElementById("inputcel");
+            let celbtn=document.getElementById("inputcel");
         let fahbtn=document.getElementById("inputfahren");
         let kelbtn=document.getElementById("inputkel");
         let btn=document.getElementById("btn")
         let ip=document.getElementsByClassName("input")
-        
             for(let i=0;i<ip.length;i++)
             {
                 let input=ip[i]
                 console.log(input.name)   
                 input.addEventListener("input",function(e){
-                   console.log(e.target.name)
+                    console.log(e.target.name)
                    btn.addEventListener("click",function()
                    {
-                    switch(e.target.name)
+                    if(e.target.name=='celsius')
                     {
-                        case "celsius":
                             cel=celbtn.value; 
                             cel=Number(cel);
-                            fah=(cel*1.8)+32;
-                            
+                            fah=(cel*1.8)+32;                      
                             document.getElementById('displayfah').innerHTML="Fahrenheit:"+fah;
                             kel=(cel+273.15);
                             document.getElementById('displaykel').innerHTML="Kelvin:"+kel;
@@ -80,16 +89,15 @@
                             document.getElementById('displaycel1').innerHTML=" ";
                             fahbtn.value=""
                             kelbtn.value="";
-                            break
-
-                        case "fahrenheit":
+                    }
+                    else if(e.target.name=='fahrenheit')
+                    {
                             fah=fahbtn.value;
                             fah=Number(fah);
                             cel=(fah-32)*0.5555556;
                             celbtn.textContent=0;
                             document.getElementById('displaycel').innerHTML="Celcius:"+cel;
-                            kel=0.556*(fah+459.67);
-                            
+                            kel=0.556*(fah+459.67);                            
                             document.getElementById('displaykel1').innerHTML="Kelvin"+kel;
                             document.getElementById('displayfah').innerHTML=" ";
                             document.getElementById('displaykel').innerHTML=" ";
@@ -97,9 +105,8 @@
                             document.getElementById('displaycel1').innerHTML=" ";
                             celbtn.value=""
                             kelbtn.value="";
-                            break
-
-                        case "kelvin":
+                    }
+                    else{
                             kel=kelbtn.value;
                             kel=Number(kel);
                             cel=kel-273.15;
@@ -114,7 +121,6 @@
                             document.getElementById('displaykel1').innerHTML=" ";
                             fahbtn.value=""
                             celbtn.value=""
-                           break  
                     }
                    })
                 })  
@@ -137,13 +143,13 @@
             </div>
             <div class="fahrenheit">
                 <h2>Fahrenheit</h2>
-                <input type="text" placeholder="Fahrenheit" name="fahrenheit" id="inputfahren" class="input">
+                <input type="text" onclick="add()" placeholder="Fahrenheit" name="fahrenheit" id="inputfahren" class="input">
                 <p><span id="displaycel"></span></p>
                 <p><span id="displaykel1"></span></p>
             </div>
             <div class="kelvin">
                 <h2>Kelvin</h2>
-                <input type="text" placeholder="Kelvin" name="kelvin" id="inputkel" class="input">
+                <input type="text" onclick="add()" placeholder="Kelvin" name="kelvin" id="inputkel" class="input">
                 <p><span id="displaycel1"></span></p>
                 <p><span id="displayfah1"></span></p>
             </div>

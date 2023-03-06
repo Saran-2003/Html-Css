@@ -21,11 +21,15 @@
             color: white;
             margin-left: 35vw;
         }
+        img{
+            width: 35vw;
+            height: 23vw;
+            margin-right: 7vw;
+        }
         .cont{
-            width: 21vw;
-            margin-left: 7vw;
+            width: 39vw;
+            margin-right: 12vw;
             display: flex;
-            flex-direction: row;
             color: gray;
         }
         .cont1>h1{
@@ -39,6 +43,7 @@
             border-radius: 20px;
         }
         .cont2>p{
+        margin: 3vw;
         background-color: white;
         color: black;
         width: 2vw;
@@ -103,6 +108,51 @@
             background: none;
             font-size: 1vw;
         }
+        .header{
+            display: flex;
+            flex-direction: row-reverse;
+        }
+        @media screen and (max-width:700px) 
+        { 
+         .block>.b1{
+            width: 45vw;
+         } 
+        .block{
+            display:flex;
+            flex-direction: column;
+            padding-left: 15vw;
+            
+           }
+           .b2,.b3,.b4,.b5,.b6
+           {
+            width: 45vw;
+            height: 40vw;
+           }
+           #btnblock{
+            font-size: large;
+            color: white;
+            border:1px solid crimson;
+            background: rgb(191, 15, 106);
+            border-radius: 10px;
+            font-family:cursive
+        }
+        .header{
+            display: flex;
+            flex-direction: column;
+            margin-left: 20vw;
+            padding: 10px;
+        }
+        img{
+            width: 47vw;
+            height: 30vw;
+        }
+        .top{
+            font-size: larger;
+        }
+        button{
+            font-size: medium;
+        }
+        }
     </style>
 </head>
 <body>
@@ -111,46 +161,49 @@
         <p><i class="fa-solid fa-house-user"></i></p>
        <!-- <button type="button" onclick="document.getElementById('cont').innerHTML = 'Hello JavaScript!'">Get Started</button>-->
     </div>
+    <div class="header">
+        <img src="Images/travel.jpg" alt="">
     <div class="cont">
         <div class="cont1">
         <h1><b>Maximize skill, minimize budget</b></h1>
         <p id="demo">Saepe, quibusdam! Rerum, aspernatur beatae, molestias possimus earum minus voluptas neque molestiae perferendis voluptate sit corporis atque eligendi dolores ipsa libero expedita!</p>
-        <button type="button" onclick='document.getElementById("demo").innerHTML="Enter your Name"'>Get Started</button>
+        <button type="button" >Get Started</button>
     </div>
     <div class="cont2">
         <p>Course hour<br>1,452</p>
         <p>Members<br>29k</p>
     </div>
      </div>
+    </div>
      <div class="block">
         <div class="b1">
             <h1>Welcome to Skilled Courses...</h1>
-            <h2>Check out for most Popular Ideas</h2>
+            <h2 >Check out for most Popular Ideas</h2>
         </div>
         <div class="b2">
             <h1><b>Animation</b></h1>
             <p>Laboriosam ducimus omnis quod dolores libero nostrum dignissimos corrupti quasi porro, harum sint id repellat quibusdam modi veritatis quo non asperiores neque?</p>
-            <button>Get started</button>
+            <button id="btnblock">Get started</button>
         </div>
         <div class="b3">
             <h1><b>Design</b></h1>
             <p>Laboriosam ducimus omnis quod dolores libero nostrum dignissimos corrupti quasi porro, harum sint id repellat quibusdam modi veritatis quo non asperiores neque?</p>
-            <button>Get started</button>
+            <button id="btnblock">Get started</button>
         </div>
         <div class="b4">
             <h1><b>Photography</b></h1>
             <p>Laboriosam ducimus omnis quod dolores libero nostrum dignissimos corrupti quasi porro, harum sint id repellat quibusdam modi veritatis quo non asperiores neque?</p>
-            <button>Get started</button>
+            <button id="btnblock">Get started</button>
         </div>
         <div class="b5">
             <h1><b>Crypto</b></h1>
             <p>Laboriosam ducimus omnis quod dolores libero nostrum dignissimos corrupti quasi porro, harum sint id repellat quibusdam modi veritatis quo non asperiores neque?</p>
-            <button>Get started</button>
+            <button id="btnblock">Get started</button>
         </div>
         <div class="b6">
             <h1><b>Business</b></h1>
             <p>Laboriosam ducimus omnis quod dolores libero nostrum dignissimos corrupti quasi porro, harum sint id repellat quibusdam modi veritatis quo non asperiores neque?</p>
-            <button>Get started</button>
+            <button id="btnblock">Get started</button>
         </div>
     </div>
         <div class="bot">
